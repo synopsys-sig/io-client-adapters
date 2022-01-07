@@ -4,7 +4,7 @@ pipeline {
         stage('IO - Execute - SAST - SpotBugs') {
             steps {
                 echo 'Execute SAST Tools'
-                synopsysIO()]) {
+                synopsysIO() {
                     sh 'io --stage execution --adapters spotbugs-adapter.json --state io_state.json'
                 }
             }

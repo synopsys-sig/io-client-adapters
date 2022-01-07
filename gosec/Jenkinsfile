@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('IO - Execute - SAST - GoSec') {
+            steps {
+                echo 'Execute SAST Tools'
+                synopsysIO()]) {
+                    sh 'io --stage execution --adapters gosec-adapter.json --state io_state.json'
+                }
+            }
+        }
+
+        post {
+            always {
+                archiveArtifacts artifacts: '**/*-results*.json', allowEmptyArchive: 'true'
+                //remove the state json file it has sensitive information
+                sh 'rm io_state.json'
+            }
+        }
+    }
+}

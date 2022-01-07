@@ -1,0 +1,25 @@
+[
+  {
+    "name": "GoSec Runner",
+    "type": "SimpleExecutable",
+    "stage": "execution",
+    "config": {
+      "conditions": [
+        "Prescription.Security.Activities.Sast.Enabled"
+      ],
+      "command": ["sh", "gosec.sh"],
+      "optional": ["Project.Branch.Name"],
+      "require": [
+        "Project.Name"
+      ],
+      "success": {
+        "Resources.MyTask.Success": true,
+        "Resources.GoSec.Enabled": true
+      },
+      "failure": {
+        "Resources.MyTask.Success": false,
+        "Resources.GoSec.Enabled": true
+      }
+    }
+  }
+]

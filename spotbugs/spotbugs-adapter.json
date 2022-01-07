@@ -1,0 +1,30 @@
+[
+  {
+    "name": "SpotBugs Runner",
+    "type": "SimpleExecutable",
+    "stage": "execution",
+    "config": {
+      "conditions": [
+        "Prescription.Security.Activities.Sast.Enabled"
+      ],
+      "command": [
+        "sh",
+        "spotbugs.sh"
+      ],
+      "optional": [
+        "Project.Branch.Name"
+      ],
+      "require": [
+        "Project.Name"
+      ],
+      "success": {
+        "Resources.FindBugs.Success": true,
+        "Resources.FindBugs.Enabled": true
+      },
+      "failure": {
+        "Resources.FindBugs.Success": false,
+        "Resources.FindBugs.Enabled": true
+      }
+    }
+  }
+]

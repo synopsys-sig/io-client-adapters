@@ -12,4 +12,3 @@ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | s
 
 ./bin/gosec -exclude-dir=go -fmt=json -out=gosec-results.json ./...
 
-echo $?

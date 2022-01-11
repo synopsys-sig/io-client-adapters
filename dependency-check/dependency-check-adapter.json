@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Dependency-Check Runner",
+    "type": "SimpleExecutable",
+    "stage": "execution",
+    "config": {
+      "conditions": [
+        "Prescription.Security.Activities.Sca.Enabled"
+      ],
+      "command": ["sh", "dependency.sh"],
+      "optional": ["Project.Branch.Name"],
+      "require": [
+        "Project.Name"
+      ],
+      "success": {
+        "Resources.DependencyCheck.Success": true,
+        "Resources.DependencyCheck.Enabled": true
+      },
+      "failure": {
+        "Resources.DependencyCheck.Success": false,
+        "Resources.DependencyCheck.Enabled": true
+      }
+    }
+  }
+]

@@ -11,8 +11,8 @@ if [ -f "$SpotBugsFile" ]; then
     echo "$SpotBugsFile exists."
 else
     echo "$SpotBugsFile does not exist. Downloading: ${SpotBugsURL}"
-    curl -L $SpotBugsURL > $SpotBugsFile.zip
-    unzip $SpotBugsFile.zip
+    curl -L $SpotBugsURL > $SpotBugsFile
+    unzip $SpotBugsFile
 fi
 
 echo "Running SpotBugs: ${SpotBugsZIP}"

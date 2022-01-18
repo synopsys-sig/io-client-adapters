@@ -1,0 +1,30 @@
+[
+  {
+    "name": "ESLint",
+    "type": "SimpleExecutable",
+    "stage": "execution",
+    "config": {
+      "conditions": [
+        "Prescription.Security.Activities.Sast.Enabled"
+      ],
+      "command": [
+        "sh",
+        "eslint.sh"
+      ],
+      "optional": [
+        "Project.Branch.Name"
+      ],
+      "require": [
+        "Project.Name"
+      ],
+      "success": {
+        "Resources.ESLint.Success": true,
+        "Resources.ESLint.Enabled": true
+      },
+      "failure": {
+        "Resources.ESLint.Success": false,
+        "Resources.ESLint.Enabled": true
+      }
+    }
+  }
+]

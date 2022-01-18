@@ -5,7 +5,7 @@
     "stage": "execution",
     "config": {
       "conditions": [
-        "Prescription.Security.Activities.Sast.Enabled"
+        "Prescription.Security.Activities.Sca.Enabled"
       ],
       "command": [
         "sh",

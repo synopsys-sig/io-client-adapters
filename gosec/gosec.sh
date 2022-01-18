@@ -1,14 +1,24 @@
 #!/bin/bash
 
-curl -O https://storage.googleapis.com/golang/go1.13.5.linux-amd64.tar.gz
+echo 'GoSec Runner'
 
-tar -xvf go1.13.5.linux-amd64.tar.gz
+GoURL="https://go.dev/dl/go1.17.6.linux-amd64.tar.gz"
+GoSecURL='https://raw.githubusercontent.com/securego/gosec/master/install.sh'
+GoSecZIP='go1.17.6.linux-amd64.tar.gz'
 
-mv go /tmp/
+# Setup Go
+if [ -f "$GoTAR" ]; then
+    echo "$GoTAR exists."
+else
+    echo "$GoTAR does not exist. Downloading: ${GoURL}"
+    curl -O $GoURL
+    tar -xvf $GoTAR
+    mv go /tmp/
+    export PATH=$PATH:/tmp/go/bin:$GOPATH/bin
+fi
 
-export PATH=$PATH:/tmp/go/bin:$GOPATH/bin
+# Download GoSec
+curl -sfL $GoSecURL | sh -s latest
 
-curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s latest
-
+echo "Running GoSec:"
 ./bin/gosec -exclude-dir=go -fmt=json -out=gosec-results.json ./...
-

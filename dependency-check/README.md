@@ -18,7 +18,7 @@ pipeline {
     ...
     stages {
         ...
-        stage('SCA - DependencyCheck') {
+        stage('SCA - Dependency-Check') {
             steps {
                 echo 'Running SCA using DependencyCheck'
                 sh 'curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/main/dependency-check/dependency-check-adapter.json --output dependency-check-adapter.json'
@@ -42,4 +42,4 @@ pipeline {
 
 ## Result/Output
 
-- spotbugs-report.html
+- dependency-check-report.htm

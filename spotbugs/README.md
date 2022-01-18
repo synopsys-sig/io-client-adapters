@@ -1,6 +1,23 @@
+# SpotBug Adapter
+
+## Overview
+
+The adapter JSON provides the execution policy & the name of the shell script to execute for SpotBugs execution.
+
+## Prerequisites
+
+For the SpotBugs shell script, the prerequisites are:
+- cURL
+- unzip
+- JDK
+
+## Usage/Pipeline Syntax
+
+````
 pipeline {
     agent any
     stages {
+        ...
         stage('IO - Execute - SAST - SpotBugs') {
             steps {
                 echo 'Download SpotBugs Adapter & Shell Script'
@@ -11,7 +28,7 @@ pipeline {
                 }
             }
         }
-
+        ...
         post {
             always {
                 // Archive Results & Logs
@@ -25,3 +42,8 @@ pipeline {
         }
     }
 }
+````
+
+## Results
+
+SpotBugs output: spotbugs-report.html

@@ -11,8 +11,8 @@ if [ -f "$DependencyCheckFile" ]; then
     echo "$DependencyCheckFile exists."
 else
     echo "$DependencyCheckFile does not exist. Downloading: ${DependencyCheckURL}"
-    curl -L $DependencyCheckURL > $DependencyCheckFile.zip
-    unzip $DependencyCheckFile.zip
+    curl -L $DependencyCheckURL > $DependencyCheckFile
+    unzip $DependencyCheckFile
 fi
 
 echo 'Packaging Application for Dependency-Check'

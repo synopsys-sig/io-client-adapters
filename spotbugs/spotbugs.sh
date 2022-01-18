@@ -1,11 +1,19 @@
 #!/bin/bash
 
-java -jar ./spotbugs-4.5.3/lib/spotbugs.jar -textui -html=report.html .
+echo 'SpotBugs Runner'
+echo '(Prerequisites: curl, unzip, jdk)'
 
-rm spotbugs-4.5.3.zip
-rm -rf spotbugs-4.5.3
+SpotBugsURL="https://github.com/spotbugs/spotbugs/releases/download/4.5.3/spotbugs-4.5.3.zip"
+SpotBugsZIP='spotbugs-4.5.3.zip'
+SpotBugsFile='spotbugs.zip'
 
-curl -L https://github.com/spotbugs/spotbugs/releases/download/4.5.3/spotbugs-4.5.3.zip > spotbugs.zip
-unzip spotbugs.zip
+if [ -f "$SpotBugsFile" ]; then
+    echo "$SpotBugsFile exists."
+else
+    echo "$SpotBugsFile does not exist. Downloading: ${SpotBugsURL}"
+    curl -L $SpotBugsURL > $SpotBugsFile.zip
+    unzip $SpotBugsFile.zip
+fi
 
-java -jar ./spotbugs-4.5.3/lib/spotbugs.jar -textui -html=spotbugs-report.html   .
+echo "Running SpotBugs: ${SpotBugsZIP}"
+java -jar ./spotbugs-4.5.3/lib/spotbugs.jar -textui -html=spotbugs-report.html .

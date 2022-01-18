@@ -1,6 +1,6 @@
 [
   {
-    "name": "SpotBugs Runner",
+    "name": "SpotBugs",
     "type": "SimpleExecutable",
     "stage": "execution",
     "config": {

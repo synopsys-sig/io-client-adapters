@@ -20,7 +20,6 @@ pipeline {
             steps {
                 echo 'Download ESLint Adapter & Shell Script'
                 sh 'curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/main/eslint/eslint-adapter.json --output eslint-adapter.json'
-                sh 'curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/main/eslint/eslint-adapter.json --output eslint-adapter.json'
                 sh 'curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/main/eslint/eslintrc.json --output .eslintrc.json'
                 sh 'curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/main/eslint/eslint.sh --output eslint.sh'
                 synopsysIO() {

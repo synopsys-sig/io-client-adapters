@@ -1,0 +1,30 @@
+[
+  {
+    "name": "NPMAudit",
+    "type": "SimpleExecutable",
+    "stage": "execution",
+    "config": {
+      "conditions": [
+        "Prescription.Security.Activities.Sca.Enabled"
+      ],
+      "command": [
+        "sh",
+        "npm-audit.sh"
+      ],
+      "optional": [
+        "Project.Branch.Name"
+      ],
+      "require": [
+        "Project.Name"
+      ],
+      "success": {
+        "Resources.NPMAudit.Success": true,
+        "Resources.NPMAudit.Enabled": true
+      },
+      "failure": {
+        "Resources.NPMAudit.Success": false,
+        "Resources.NPMAudit.Enabled": true
+      }
+    }
+  }
+]

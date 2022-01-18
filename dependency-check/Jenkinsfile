@@ -1,19 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('IO - Execute - SCA - Dependency-Check') { 
+        stage('IO - Execute - SCA - Dependency-Check') {
             steps {
-                echo 'Execute SCA Tool'
+                echo 'Download Dependency-Check Adapter & Shell Script'
+                sh "curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/eslint/dependency-check/dependency-check-adapter.json --output dependency-check-adapter.json"
+                sh "curl https://raw.githubusercontent.com/synopsys-sig/io-client-adapters/eslint/dependency-check/dependency-check.sh --output dependency-check.sh"
                 synopsysIO() {
-                sh 'io --stage execution --adapters dependency-check-adapter.json --state io_state.json' }
+                    sh 'io --stage execution --adapters dependency-check-adapter.json --state io_state.json' }
             }
         }
 
         post {
             always {
+                // Archive Results & Logs
                 archiveArtifacts artifacts: '**/*-results*.json', allowEmptyArchive: 'true'
-                archiveArtifacts artifacts: '**/*-report*.*', allowEmptyArchive: 'true'
-                //remove the state json file it has sensitive information
+                archiveArtifacts artifacts: '.io/**', allowEmptyArchive: 'true'
+                archiveArtifacts artifacts: 'dependency-check-report.html', allowEmptyArchive: 'true'
+
+                // Remove the state json file it has sensitive information
                 sh 'rm io_state.json'
             }
         }

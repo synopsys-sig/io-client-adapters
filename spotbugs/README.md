@@ -1,17 +1,16 @@
-# SpotBug Adapter
+# SpotBugs Adapter
 
 ## Overview
 
-The adapter JSON provides the execution policy & the name of the shell script to execute for SpotBugs execution.
+Static Application Security Test Tool for Java - https://spotbugs.github.io/
 
 ## Prerequisites
 
-For the SpotBugs shell script, the prerequisites are:
 - cURL
 - unzip
 - JDK
 
-## Usage/Pipeline Syntax
+## Usage in Pipeline
 
 ````
 pipeline {
@@ -44,6 +43,6 @@ pipeline {
 }
 ````
 
-## Results
+## Result/Output
 
-SpotBugs output: spotbugs-report.html
+- spotbugs-report.html

@@ -16,6 +16,10 @@ Software Composition Analysis Tool for Java - https://jeremylong.github.io/Depen
 ````
 pipeline {
     ...
+    tools {
+        nodejs 'NodeJS'
+    }
+    ...
     stages {
         ...
         stage('SCA - Dependency-Check') {

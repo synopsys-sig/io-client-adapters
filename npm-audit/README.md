@@ -14,6 +14,10 @@ Software Composition Analysis Tool for JavaScript - https://docs.npmjs.com/cli/a
 ````
 pipeline {
     ...
+    tools {
+        nodejs 'NodeJS'
+    }
+    ...
     stages {
         ...
         stage('IO - Execute - SCA - NPM Audit') {

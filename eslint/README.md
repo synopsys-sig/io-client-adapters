@@ -14,6 +14,10 @@ Static Application Security Test Tool for JavaScript - https://eslint.org/
 ````
 pipeline {
     ...
+    tools {
+        nodejs 'NodeJS'
+    }
+    ...
     stages {
         ...
         stage('IO - Execute - SAST - ESLint') {

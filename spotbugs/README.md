@@ -15,6 +15,10 @@ Static Application Security Test Tool for Java - https://spotbugs.github.io/
 ````
 pipeline {
     ...
+    tools {
+        maven 'Maven3'
+    }
+    ...
     stages {
         ...
         stage('IO - Execute - SAST - SpotBugs') {

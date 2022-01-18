@@ -14,6 +14,10 @@ Static Application Security Test Tool for Go - https://github.com/securego/gosec
 ````
 pipeline {
     ...
+    tools {
+        go 'Go'
+    }
+    ...
     stages {
         ...
         stage('IO - Execute - SAST - GoSec') {

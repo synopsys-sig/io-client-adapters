@@ -1,6 +1,6 @@
 [
   {
-    "name": "GoSec",
+    "name": "ESLint",
     "type": "SimpleExecutable",
     "stage": "execution",
     "config": {
@@ -9,7 +9,7 @@
       ],
       "command": [
         "sh",
-        "gosec.sh"
+        "eslint.sh"
       ],
       "optional": [
         "Project.Branch.Name"
@@ -18,12 +18,12 @@
         "Project.Name"
       ],
       "success": {
-        "Resources.GoSec.Success": true,
-        "Resources.GoSec.Enabled": true
+        "Resources.ESLint.Success": true,
+        "Resources.ESLint.Enabled": true
       },
       "failure": {
-        "Resources.GoSec.Success": false,
-        "Resources.GoSec.Enabled": true
+        "Resources.ESLint.Success": false,
+        "Resources.ESLint.Enabled": true
       }
     }
   }

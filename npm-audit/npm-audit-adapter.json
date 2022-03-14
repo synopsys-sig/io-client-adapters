@@ -1,15 +1,15 @@
 [
   {
-    "name": "GoSec",
+    "name": "NPMAudit",
     "type": "SimpleExecutable",
     "stage": "execution",
     "config": {
       "conditions": [
-        "Prescription.Security.Activities.Sast.Enabled"
+        "Prescription.Security.Activities.Sca.Enabled"
       ],
       "command": [
         "sh",
-        "gosec.sh"
+        "npm-audit.sh"
       ],
       "optional": [
         "Project.Branch.Name"
@@ -18,12 +18,12 @@
         "Project.Name"
       ],
       "success": {
-        "Resources.GoSec.Success": true,
-        "Resources.GoSec.Enabled": true
+        "Resources.NPMAudit.Success": true,
+        "Resources.NPMAudit.Enabled": true
       },
       "failure": {
-        "Resources.GoSec.Success": false,
-        "Resources.GoSec.Enabled": true
+        "Resources.NPMAudit.Success": false,
+        "Resources.NPMAudit.Enabled": true
       }
     }
   }
